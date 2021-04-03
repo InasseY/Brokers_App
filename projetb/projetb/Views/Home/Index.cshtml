@@ -6,13 +6,14 @@
 }
 
 <div class="title text-center d-flex justify-content-center align-items-center">
-    <h1 class="titleBox">Bienvenue sur notre plateforme de CourtierInside !</h1>
+    <h1 class="titleBox">Bienvenue sur notre plateforme de CourtierInsider !</h1>
 </div>
 
 
 <p>
-    @Html.ActionLink("nouveau RDV","addAppointment", "Appointment")
+    @Html.ActionLink("nouveau RDV", "addAppointment", "Appointment")
 </p>
+<div id='calendar'></div>
 
 <table class="table">
     <tr>
@@ -42,49 +43,7 @@
         </tr>
     }
 </table>
-@*Progress bar*@ 
-<div class="page-content page-container" id="page-content">
-    <div class="padding">
-        <div class="row container d-flex justify-content-center">
-            <div class="col-xl-12">
-                <div class="card proj-progress-card">
-                    <div class="card-block">
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <h6>Clients qui nous ont fait confiance</h6>
-                                <h5 class="m-b-30 f-w-700">532<span class="text-c-green m-l-10">+45.69%</span></h5>
-                                <div class="progress">
-                                    <div class="progress-bar bg-c-red" style="width:85%"></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <h6>Notre développement interne</h6>
-                                <h5 class="m-b-30 f-w-700">4,569<span class="text-c-red m-l-10">+15.5%</span></h5>
-                                <div class="progress">
-                                    <div class="progress-bar bg-c-blue" style="width:70%"></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <h6>Nos parts de marché</h6>
-                                <h5 class="m-b-30 f-w-700">89%<span class="text-c-green m-l-10">+0.99%</span></h5>
-                                <div class="progress">
-                                    <div class="progress-bar bg-c-green" style="width:85%"></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <h6>Notre taux en bourse</h6>
-                                <h5 class="m-b-30 f-w-700">365<span class="text-c-green m-l-10">+0.35%</span></h5>
-                                <div class="progress">
-                                    <div class="progress-bar bg-c-yellow" style="width:65%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 @section scripts {
     <script>
         $(function () {
@@ -153,6 +112,16 @@
             return data;
         };
     });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth'
+            });
+            calendar.render();
+        });
+
     </script>
 }
 

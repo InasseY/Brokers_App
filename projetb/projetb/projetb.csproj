@@ -178,6 +178,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="calendar\locales-all.js" />
+    <Content Include="calendar\locales-all.min.js" />
+    <Content Include="calendar\main.css" />
+    <Content Include="calendar\main.js" />
+    <Content Include="calendar\main.min.css" />
+    <Content Include="calendar\main.min.js" />
     <Content Include="Content\alertifyjs\alertify.css" />
     <Content Include="Content\alertifyjs\alertify.min.css" />
     <Content Include="Content\alertifyjs\alertify.rtl.css" />
