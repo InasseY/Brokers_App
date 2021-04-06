@@ -6,9 +6,8 @@
 }
 
 <h2>Liste de Courtiers</h2>
-<div class="banner">
-    <img src="~/Images/courtier.jpg" alt="Slogan Courtier" class="img-thumbnail" title="nos valeurs de courtierInside" />
-</div>
+<div class="body">
+
 <p>
     @Html.ActionLink("Créer un nouveau", "addbroker")
 </p>
@@ -34,7 +33,7 @@
                     <a href="@Url.Action("Edit", new{ id = item.idBroker})" class="btn btn-warning">Modifier</a>
                     <a href="@Url.Action("addAppointment","Appointment", new{ id = item.idBroker})" class="btn btn-default">Prendre RDV</a>
                     <a class="delete-link btn btn-danger" href="@Url.Action("Delete", new { id = item.idBroker })">Supprimer</a>
-                    <button class="btn btn-warning delete-confirm" style="display:none" data-delete-id="@item.idBroker">Es tu sûr?</button>
+                    <button class="supp btn btn-warning delete-confirm" style="display:none" data-delete-id="@item.idBroker">Es tu sûr?</button>
                 </div>
 
             </td>
@@ -42,6 +41,7 @@
     }
 
 </table>
+</div>
 
 @section scripts {
     <script>
@@ -68,8 +68,7 @@
             var deleteItem = function () {
                 removeEvents();
                 confirmButton.hide();
-                $.post(
-                    '@Url.Action("Delete")',
+                $.post('@Url.Action("Delete")',
                     AddAntiForgeryToken({ id: confirmButton.attr('data-delete-id') }))
                    .done(function () {
                        var parentRow = deleteLink.parents("tr:first");
@@ -81,6 +80,7 @@
                    });
                 return false;
             };
+            
 
             var removeEvents = function () {
                 confirmButton.off("click", deleteItem);

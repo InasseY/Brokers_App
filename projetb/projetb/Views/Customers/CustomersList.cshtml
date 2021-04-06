@@ -6,9 +6,7 @@
 }
 
 <h2>Liste des Clients</h2>
-<div class="banner">
-    <img src="~/Images/courtier.jpg" alt="Slogan Courtier" class="img-thumbnail" title="nos valeurs de courtierInside" />
-</div>
+
 <p>
     @Html.ActionLink("Créer un nouveau", "addcustomers")
 </p>
@@ -56,7 +54,7 @@
                     <a href="@Url.Action("editC", new{ id = item.idCustomer})" class="btn btn-info">Modifier</a>
                     <a href="@Url.Action("profilC", new{ id = item.idCustomer})" class="btn btn-warning">Infos Clients</a>
                     <a class="delete-link btn btn-danger" href="@Url.Action("Delete", new { id = item.idCustomer })">Supprimer</a>
-                    <button class="btn btn-warning delete-confirm" style="display:none" data-delete-id="@item.idCustomer">Es tu sûr?</button>
+                    <button class="cust btn btn-warning delete-confirm" data-delete-id="@item.idCustomer">Es tu sûr?</button>
                 </div>
             </td>
         </tr>
@@ -71,7 +69,6 @@
                 alertify.success(successMessage);
         });
     </script>
-
     <script type="text/javascript">
     $(function () {
         $("a.delete-link").click(function () {
@@ -88,8 +85,7 @@
             var deleteItem = function () {
                 removeEvents();
                 confirmButton.hide();
-                $.post(
-                    '@Url.Action("Delete")',
+                $.post('@Url.Action("Delete")',
                     AddAntiForgeryToken({ id: confirmButton.attr('data-delete-id') }))
                    .done(function () {
                        var parentRow = deleteLink.parents("tr:first");

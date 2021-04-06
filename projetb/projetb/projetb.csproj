@@ -208,9 +208,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\banner.png" />
     <Content Include="Images\brokers.jpg" />
     <Content Include="Images\courtier.jpg" />
     <Content Include="Images\customers.jpg" />
+    <Content Include="Images\meeting.jpg" />
     <Content Include="Images\pourcentage.jpg" />
     <Content Include="jquery\jquery.datetimepicker.full.js" />
     <Content Include="jquery\jquery.datetimepicker.min.css" />

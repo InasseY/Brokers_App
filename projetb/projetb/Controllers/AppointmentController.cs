@@ -44,14 +44,19 @@ namespace projetb.Controllers
 
             return View(appointment.ToList());
         }
+        [HttpPost]
         public ActionResult Delete(int id) //supprimer un RDV
         {
+            var apps = dbj.Appointments.Where(x => x.idBroker == id).ToList();
+            foreach (var app in apps)
+            {
+                dbj.Appointments.Remove(app);
+                dbj.SaveChanges();
+            }
             var appointment = dbj.Appointments.Where(model => model.idAppointment == id).First();
             dbj.Appointments.Remove(appointment);
             dbj.SaveChanges();
             var list = dbj.Appointments.ToList();
-            //ViewBag.idBroker = new SelectList(dbj.Brokers, "idBroker", "lastname");
-            //ViewBag.idCustomer = new SelectList(dbj.Customers, "idCustomer", "lastname");
             return View("appointments", list);
         }
     }

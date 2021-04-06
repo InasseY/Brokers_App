@@ -39,23 +39,19 @@ textarea {
 .banner {
     height: 50%;
     width: 50%;
-    float: right;
+    
 }
 .work {
     height: 50%;
     width: 50%;
     float: right;
 }
-.client {
-    height: 50%;
-    width: 50%;
-    float: right;
+.supp {
+
+    display:none;
 }
-.meeting {
-    height: 50%;
-    width: 50%;
-    float: right;
-    padding: 100px 30px 20px;
+.cust {
+    display: none;
 }
 
 .appoint {
@@ -73,4 +69,7 @@ textarea {
 }
 .delete-section {
     display: inline;
+}
+.appli{
+    
 }

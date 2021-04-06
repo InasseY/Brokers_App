@@ -42,14 +42,22 @@ namespace projetb.Controllers
             var brokers = dbobj.Brokers.ToList();
             return View(brokers);
         }
+        [HttpPost]
         public ActionResult Delete(int id) //supprimer un courtier de la liste
         {
+            var apps = dbobj.Appointments.Where(x => x.Brokers.idBroker == id).ToList(); 
+            foreach(var app in apps)
+            {
+                dbobj.Appointments.Remove(app);
+                dbobj.SaveChanges(); 
+            }
+
             var brokers = dbobj.Brokers.Where(model => model.idBroker == id).First();
             dbobj.Brokers.Remove(brokers);
             dbobj.SaveChanges();
 
             var list = dbobj.Brokers.ToList();
-            return View("BrokersList", list);
+            return RedirectToAction("BrokersList", list);
         }
         public ActionResult Profil(int id) //afficher les informations du courtier
         {

@@ -37,16 +37,24 @@ namespace projetb.Controllers
             var customer = dbj.Customers.ToList();
             return View(customer);
         }
-       
+       [HttpPost]
         public ActionResult Delete(int id) //supprimer un client de la liste
         {
+            var apps = dbj.Appointments.Where(x => x.Customers.idCustomer == id).ToList();
+            foreach (var app in apps)
+            {
+                dbj.Appointments.Remove(app);
+                dbj.SaveChanges();
+            }
             var customer = dbj.Customers.Where(model => model.idCustomer == id).First();
             dbj.Customers.Remove(customer);
             dbj.SaveChanges();
 
             var list = dbj.Customers.ToList();
-            return View("CustomersList", list);
+            return RedirectToAction("CustomersList", list);
         }
+
+
         public ActionResult profilC(int id) //afficher les informations clients
         {
             var custom = dbj.Customers.Where(s => s.idCustomer == id).First();
