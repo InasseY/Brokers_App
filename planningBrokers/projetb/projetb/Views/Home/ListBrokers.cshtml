@@ -1,0 +1,51 @@
+﻿@model IEnumerable<projetb.Models.data.Brokers>
+
+@{
+    ViewBag.Title = "ListBrokers";
+}
+
+<h2>ListBrokers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phoneNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idBroker }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idBroker }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idBroker })
+        </td>
+    </tr>
+}
+
+</table>

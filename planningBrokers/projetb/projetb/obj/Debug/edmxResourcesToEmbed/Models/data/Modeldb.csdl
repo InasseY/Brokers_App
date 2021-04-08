@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="agendaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Appointments">
+    <Key>
+      <PropertyRef Name="idAppointment" />
+    </Key>
+    <Property Name="idAppointment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dateHour" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idCustomer" Type="Int32" Nullable="false" />
+    <Property Name="idBroker" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Brokers" Relationship="Self.Appointments_Brokers0_FK" FromRole="Appointments" ToRole="Brokers" />
+    <NavigationProperty Name="Customers" Relationship="Self.Appointments_Customers_FK" FromRole="Appointments" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="Brokers">
+    <Key>
+      <PropertyRef Name="idBroker" />
+    </Key>
+    <Property Name="idBroker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Appointments" Relationship="Self.Appointments_Brokers0_FK" FromRole="Brokers" ToRole="Appointments" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="idCustomer" />
+    </Key>
+    <Property Name="idCustomer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="budget" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Appointments" Relationship="Self.Appointments_Customers_FK" FromRole="Customers" ToRole="Appointments" />
+  </EntityType>
+  <Association Name="Appointments_Brokers0_FK">
+    <End Role="Brokers" Type="Self.Brokers" Multiplicity="1" />
+    <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brokers">
+        <PropertyRef Name="idBroker" />
+      </Principal>
+      <Dependent Role="Appointments">
+        <PropertyRef Name="idBroker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Appointments_Customers_FK">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="idCustomer" />
+      </Principal>
+      <Dependent Role="Appointments">
+        <PropertyRef Name="idCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="agendaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Appointments" EntityType="Self.Appointments" />
+    <EntitySet Name="Brokers" EntityType="Self.Brokers" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" />
+    <AssociationSet Name="Appointments_Brokers0_FK" Association="Self.Appointments_Brokers0_FK">
+      <End Role="Brokers" EntitySet="Brokers" />
+      <End Role="Appointments" EntitySet="Appointments" />
+    </AssociationSet>
+    <AssociationSet Name="Appointments_Customers_FK" Association="Self.Appointments_Customers_FK">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Appointments" EntitySet="Appointments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

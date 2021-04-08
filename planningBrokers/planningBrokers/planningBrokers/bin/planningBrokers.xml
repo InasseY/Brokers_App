@@ -1,0 +1,41 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+planningBrokers
+</name>
+</assembly>
+<members>
+<member name="T:planningBrokers.My.MyWebExtension">
+ <summary>
+ Module utilisé pour définir les propriétés qui sont disponibles dans My Namespace pour les projets Web.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:planningBrokers.My.MyWebExtension.Computer">
+ <summary>
+ Retourne les informations relatives à l'ordinateur hôte.
+ </summary>
+</member>
+<member name="P:planningBrokers.My.MyWebExtension.User">
+ <summary>
+ Retourne des informations pour l'utilisateur Web actuel.
+ </summary>
+</member>
+<member name="P:planningBrokers.My.MyWebExtension.Request">
+ <summary>
+ Retourne l'objet Request.
+ </summary>
+</member>
+<member name="P:planningBrokers.My.MyWebExtension.Response">
+ <summary>
+ Retourne l'objet Response.
+ </summary>
+</member>
+<member name="P:planningBrokers.My.MyWebExtension.Log">
+ <summary>
+ Retourne l'objet de journal Asp.
+ </summary>
+</member>
+</members>
+</doc>
