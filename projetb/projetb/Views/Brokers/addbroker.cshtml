@@ -1,0 +1,42 @@
+﻿@model projetb.Models.data.Brokers
+
+@{
+    ViewBag.Title = "addbroker";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Formulaire d'ajout de courtiers</h2>
+
+
+@using(Html.BeginForm())
+      { 
+<div class="container">
+    <div class="form-group">
+        <label>Nom</label>
+        @Html.ValidationMessageFor(model => model.lastname,"", new {@class = "error"})
+        @Html.TextBoxFor(model => model.lastname, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Prénom</label>
+        @Html.ValidationMessageFor(model => model.firstname, "", new { @class = "error" })
+        @Html.TextBoxFor(model => model.firstname, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        @Html.ValidationMessageFor(model => model.mail, "", new { @class = "error" })
+        @Html.TextBoxFor(model => model.mail, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Numéro de téléphone</label>
+        @Html.ValidationMessageFor(model => model.phoneNumber, "", new { @class = "error" })
+        @Html.TextBoxFor(model => model.phoneNumber, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit"  id="addb" value="Créer" class="btn btn-success" />
+            <input type="submit" id="cancel" value="Annuler" class="btn btn-danger" />
+        </div>
+    </div>
+</div>
+}
+

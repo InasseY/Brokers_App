@@ -1,0 +1,47 @@
+﻿@model List<projetb.Models.data.Brokers>
+
+@{
+    ViewBag.Title = "BrokersList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Liste de Courtiers</h2>
+
+<table class="table">
+    <tr>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Numéro</th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.lastname</td>
+            <td>@item.firstname</td>
+            <td>@item.mail</td>
+            <td>@item.phoneNumber</td>
+            <td>
+                <a href="@Url.Action("Profil", new{ id = item.idBroker})" class="btn btn-info">Profil Courtier</a>
+                <a href="@Url.Action("Edit", new{ id = item.idBroker})" class="btn btn-warning">Modifier</a>
+                <a href="@Url.Action("Delete", new{ id = item.idBroker})" class="btn btn-danger">Supprimer</a>
+
+                      @*@Html.ActionLink("ProfilCourtier", "Details", new { id = item.idBroker }) |*@
+                      @*@Html.ActionLink("Supprimer", "Delete", new { id = item.idBroker })*@
+            </td> 
+        </tr>
+    }
+
+</table>
+
+@section scripts {
+    <script>
+        $(function () {
+            var successMessage = `@TempData["SuccessMessage"]`
+            if (successMessage != ``)
+                alertify.success(successMessage);
+        });
+    </script>
+}
