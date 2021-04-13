@@ -11,7 +11,8 @@ namespace projetb.Models.data
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Customers
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,10 +22,28 @@ namespace projetb.Models.data
         }
     
         public int idCustomer { get; set; }
+
+        [Required(ErrorMessage = "Requis")]
+        [Display(Name = "Nom")]
         public string lastname { get; set; }
+
+        [Required(ErrorMessage = "Requis")]
+        [Display(Name = "Prénom")]
         public string firstname { get; set; }
+
+        [Required(ErrorMessage = "Requis")]
+        [EmailAddress]
+        [Display(Name = "Email")]
         public string mail { get; set; }
+
+        [Required(ErrorMessage = "Requis")]
+        [MinLength(10, ErrorMessage = "Un numéro possède 10 chiffres")]
+        [Phone]
+        [Display(Name = "N° téléphone")]
         public string phoneNumber { get; set; }
+
+        [Required(ErrorMessage = "Requis")]
+        [Display(Name = "Budget")]
         public int budget { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
