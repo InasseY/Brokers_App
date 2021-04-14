@@ -44,3 +44,6 @@ textarea {
 .error {
     color: orangered;
 }
+.delete-section {
+    display: inline;
+}

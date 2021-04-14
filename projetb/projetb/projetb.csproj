@@ -252,6 +252,8 @@
     <Content Include="Views\Brokers\Profil.cshtml" />
     <Content Include="Views\Customers\addcustomers.cshtml" />
     <Content Include="Views\Customers\CustomersList.cshtml" />
+    <Content Include="Views\Customers\profilC.cshtml" />
+    <Content Include="Views\Customers\editC.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
