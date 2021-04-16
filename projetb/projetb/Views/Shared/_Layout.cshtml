@@ -5,12 +5,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mon application ASP.NET</title>
+    <link href="~/jquery/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <script src="~/jquery/jquery.js"></script>
+    <script src="~/jquery/jquery.datetimepicker.full.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />
     <link href="~/Content/alertifyjs/themes/default.min.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" />
- 
+
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -29,23 +33,29 @@
                     <li>@Html.ActionLink("Liste Courtiers", "BrokersList", "Brokers", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Ajout Clients", "addcustomers", "Customers", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Liste Clients", "CustomersList", "Customers", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Ajout de Rendez-Vous", "addAppointment", "Appointment", new { area = "" }, new { @class = "nav-link" })</li>
+
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content fixed-bottom">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mon application ASP.NET by Inasse Youssouf</p>
-        </footer>
+      
+    <footer>
+
+        <p @*class="fixed-bottom"*@>&copy; @DateTime.Now.Year - Mon application ASP.NET by Inasse Youssouf</p>
+
+    </footer>
+
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     <script src="~/Scripts/alertify.min.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     @RenderSection("scripts", required: false)
+    
 </body>
 </html>

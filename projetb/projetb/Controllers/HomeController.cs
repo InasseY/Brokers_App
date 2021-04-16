@@ -13,27 +13,28 @@ namespace projetb.Controllers
         agendaEntities db = new agendaEntities(); 
         public ActionResult Index()
         {
-            return View();
+            var Appointment = db.Appointments.ToList();
+            return View (Appointment);
         }
 
-        public ActionResult ListBrokers()
-        {
-            return View(db.Brokers.ToList());
-        }
+    //   public ActionResult ListBrokers()
+    //   {
+    ////        return View(db.Brokers.ToList());
+    ////    }
 
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+    //    public ActionResult About()
+    //    {
+    //        ViewBag.Message = "Your application description page.";
 
-            return View();
-        }
+    //        return View();
+    //    }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+    //    public ActionResult Contact()
+    //    {
+    //        ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+    //        return View();
+    //    }
     }
 }

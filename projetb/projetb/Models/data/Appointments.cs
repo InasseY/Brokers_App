@@ -11,15 +11,28 @@ namespace projetb.Models.data
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Appointments
     {
         public int idAppointment { get; set; }
+
+        [Required(ErrorMessage = "Ajoute une date et une heure valide")]
+        [DataType(DataType.DateTime)]
+        [Display(Name = "Date et Heure")]
         public System.DateTime dateHour { get; set; }
+
+        [Required(ErrorMessage = "Ajoute un motif de réunion")]
+        [Display(Name = "Motif de la réunion")]
         public string subject { get; set; }
+
+        [Required(ErrorMessage = "Requis")]
+        [Display(Name = "Nom Client")]
         public int idCustomer { get; set; }
+
+        [Required(ErrorMessage = "Requis")]
+        [Display(Name = "Nom Courtier")]
         public int idBroker { get; set; }
-    
         public virtual Brokers Brokers { get; set; }
         public virtual Customers Customers { get; set; }
     }

@@ -5,13 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>Ajout de nouveaux clients</h2>
+<div class="client">
+    <img src="~/Images/customers.jpg" alt="Courtier" class="img-thumbnail" title="nos valeurs de courtierInside" />
+</div>
 
-@using (Html.BeginForm()) 
+
+@using (Html.BeginForm())
 {
-    @*@Html.AntiForgeryToken()*@
-    
+    @Html.AntiForgeryToken()
+
     <div class="form-horizontal">
-        
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -64,5 +68,5 @@
 }
 
 <div>
-    @Html.ActionLink("Retour au menu", "Index")
+    @Html.ActionLink("Retour au menu", "Index", "Home")
 </div>

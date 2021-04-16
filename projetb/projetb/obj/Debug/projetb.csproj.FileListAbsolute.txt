@@ -99,3 +99,6 @@
 \\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\obj\Debug\projetb.dll
 \\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\obj\Debug\projetb.pdb
 \\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\bin\fr\EntityFramework.SqlServer.resources.dll
+\\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\bin\DHTMLX.dll
+\\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\bin\DHTMLX.pdb
+\\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\bin\DHTMLX.xml

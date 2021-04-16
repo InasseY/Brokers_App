@@ -6,7 +6,12 @@
 }
 
 <h2>Liste de Courtiers</h2>
-
+<div class="banner">
+    <img src="~/Images/courtier.jpg" alt="Slogan Courtier" class="img-thumbnail" title="nos valeurs de courtierInside" />
+</div>
+<p>
+    @Html.ActionLink("Créer un nouveau", "addbroker")
+</p>
 <table class="table">
     <tr>
         <th>Prénom</th>
@@ -16,7 +21,7 @@
 
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.OrderBy(item => item.firstname))
     {
         <tr>
             <td>@item.lastname</td>
@@ -27,6 +32,7 @@
                 <div class="delete-section">
                     <a href="@Url.Action("Profil", new{ id = item.idBroker})" class="btn btn-info">Profil Courtier</a>
                     <a href="@Url.Action("Edit", new{ id = item.idBroker})" class="btn btn-warning">Modifier</a>
+                    <a href="@Url.Action("addAppointment","Appointment", new{ id = item.idBroker})" class="btn btn-default">Prendre RDV</a>
                     <a class="delete-link btn btn-danger" href="@Url.Action("Delete", new { id = item.idBroker })">Supprimer</a>
                     <button class="btn btn-warning delete-confirm" style="display:none" data-delete-id="@item.idBroker">Es tu sûr?</button>
                 </div>
@@ -45,7 +51,7 @@
                 alertify.success(successMessage);
         });
     </script>
-    </script>
+    
     <script type="text/javascript">
     $(function () {
         $("a.delete-link").click(function () {
