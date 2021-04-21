@@ -93,7 +93,6 @@
 \\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\bin\fr\System.Net.Http.Formatting.resources.dll
 \\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\bin\fr\System.Web.Http.resources.dll
 \\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\bin\fr\System.Web.Http.WebHost.resources.dll
-\\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\obj\Debug\projetb.csprojAssemblyReference.cache
 \\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\obj\Debug\projetb.csproj.CoreCompileInputs.cache
 \\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\obj\Debug\projetb.csproj.CopyComplete
 \\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\obj\Debug\projetb.dll
@@ -102,3 +101,4 @@
 \\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\bin\DHTMLX.dll
 \\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\bin\DHTMLX.pdb
 \\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\bin\DHTMLX.xml
+\\vmware-host\Shared Folders\Documents\Formation Doc.net\planningBrokers\projetb\projetb\obj\Debug\projetb.csprojAssemblyReference.cache

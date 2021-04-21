@@ -31,7 +31,7 @@ namespace projetb.Controllers
                 dbj.Appointments.Add(appointment);
                 dbj.SaveChanges();
                 TempData["SuccessMessage"] = "C'est dans la boite !";
-                return RedirectToAction("appointmentsList");
+                return RedirectToAction("Index","Home");
             }
             ViewBag.idBroker = new SelectList(dbj.Brokers, "idBroker", "lastname");
             ViewBag.idCustomer = new SelectList(dbj.Customers, "idCustomer", "lastname");
@@ -47,17 +47,11 @@ namespace projetb.Controllers
         [HttpPost]
         public ActionResult Delete(int id) //supprimer un RDV
         {
-            var apps = dbj.Appointments.Where(x => x.idBroker == id).ToList();
-            foreach (var app in apps)
-            {
-                dbj.Appointments.Remove(app);
-                dbj.SaveChanges();
-            }
-            var appointment = dbj.Appointments.Where(model => model.idAppointment == id).First();
-            dbj.Appointments.Remove(appointment);
+            Appointments appointments = dbj.Appointments.Find(id);
+            dbj.Appointments.Remove(appointments);
             dbj.SaveChanges();
-            var list = dbj.Appointments.ToList();
-            return View("appointments", list);
+            
+            return View("Index");
         }
     }
 

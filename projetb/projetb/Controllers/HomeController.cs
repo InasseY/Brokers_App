@@ -17,24 +17,34 @@ namespace projetb.Controllers
             return View (Appointment);
         }
 
-    //   public ActionResult ListBrokers()
-    //   {
-    ////        return View(db.Brokers.ToList());
-    ////    }
+        [HttpPost]
+        public ActionResult Delete(int id) //supprimer un RDV
+        {
+            Appointments appointments = db.Appointments.Find(id);
+            db.Appointments.Remove(appointments);
+            db.SaveChanges();
+
+            return View("Index");
+        }
+
+        //   public ActionResult ListBrokers()
+        //   {
+        ////        return View(db.Brokers.ToList());
+        ////    }
 
 
-    //    public ActionResult About()
-    //    {
-    //        ViewBag.Message = "Your application description page.";
+        //    public ActionResult About()
+        //    {
+        //        ViewBag.Message = "Your application description page.";
 
-    //        return View();
-    //    }
+        //        return View();
+        //    }
 
-    //    public ActionResult Contact()
-    //    {
-    //        ViewBag.Message = "Your contact page.";
+        //    public ActionResult Contact()
+        //    {
+        //        ViewBag.Message = "Your contact page.";
 
-    //        return View();
-    //    }
+        //        return View();
+        //    }
     }
 }

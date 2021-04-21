@@ -20,7 +20,7 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+   /* max-width: 280px;*/
 }
 .up {
     width: 100%;
@@ -41,10 +41,14 @@ textarea {
     width: 50%;
     
 }
-.work {
+.formulaire {
+    padding-left: 80px;
+}
+.img {
     height: 50%;
     width: 50%;
     float: right;
+    padding-right : initial;
 }
 .supp {
 
@@ -69,7 +73,4 @@ textarea {
 }
 .delete-section {
     display: inline;
-}
-.appli{
-    
 }
