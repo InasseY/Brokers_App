@@ -41,9 +41,7 @@ textarea {
     width: 50%;
     
 }
-.formulaire {
-    padding-left: 80px;
-}
+
 .img {
     height: 50%;
     width: 50%;
@@ -56,13 +54,6 @@ textarea {
 }
 .cust {
     display: none;
-}
-
-.appoint {
-    height: 35%;
-    width: 45%;
-    float: right;
-    padding: 100px 30px 20px;
 }
 .navbar {
     background-color: darkred;

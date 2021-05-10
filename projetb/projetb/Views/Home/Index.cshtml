@@ -13,6 +13,15 @@
 <p>
     @Html.ActionLink("nouveau RDV", "addAppointment", "Appointment")
 </p>
+@using (Html.BeginForm(@*"Search", "Home",*@ FormMethod.Get))
+{
+    <b>Rechercher par</b>
+    @Html.RadioButton("searchBy", "Courtiers")<text>Courtiers</text>
+    @Html.RadioButton("searchBy", "Clients")<text>Clients</text>
+    <br />
+    @Html.TextBox("search")
+    <input type="submit" value="Rechercher" />
+}
 <div id='calendar'></div>
 
 <table class="table">

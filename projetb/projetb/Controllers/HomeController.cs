@@ -14,9 +14,23 @@ namespace projetb.Controllers
         public ActionResult Index()
         {
             var Appointment = db.Appointments.ToList();
-            return View (Appointment);
+            return View(Appointment);
         }
 
+        public ActionResult Index2 (string searchBy, string search)
+        {
+            if (searchBy == "Courtiers")
+            {
+
+                TempData["SuccessMessage"] = "Courtier existant !";
+                return View(db.Appointments.Where(x => x.Brokers.firstname.StartsWith(search)).ToList());
+            }
+            else
+            {
+                TempData["SuccessMessage"] = "Client existant !";
+                return View(db.Appointments.Where(x => x.Customers.firstname.StartsWith(search)).ToList());
+            }
+        }
         [HttpPost]
         public ActionResult Delete(int id) //supprimer un RDV
         {
@@ -26,6 +40,8 @@ namespace projetb.Controllers
 
             return View("Index");
         }
+
+        
 
         //   public ActionResult ListBrokers()
         //   {
